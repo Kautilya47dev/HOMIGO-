@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HOMIGO AMC Plans</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+
+            background:
+            linear-gradient(
+            135deg,
+            #eef4ff,
+            #ffffff
+            );
+
+            min-height:100vh;
+        }
+
+        nav{
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:20px 8%;
+
+            background:white;
+
+            box-shadow:
+            0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .logo{
+
+            font-size:32px;
+            font-weight:bold;
+
+            background:
+            linear-gradient(
+            to right,
+            #2563eb,
+            #7c3aed
+            );
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .home-btn{
+
+            text-decoration:none;
+
+            background:
+            linear-gradient(
+            to right,
+            #2563eb,
+            #7c3aed
+            );
+
+            color:white;
+
+            padding:12px 22px;
+
+            border-radius:14px;
+        }
+
+        .hero{
+
+            text-align:center;
+
+            padding:70px 8% 30px;
+        }
+
+        .hero h1{
+
+            font-size:55px;
+            color:#0f172a;
+        }
+
+        .hero p{
+
+            margin-top:20px;
+
+            color:#64748b;
+
+            font-size:18px;
+
+            line-height:1.8;
+        }
+
+        .card{
+
+            width:90%;
+            max-width:800px;
+
+            margin:30px auto;
+
+            background:
+            rgba(255,255,255,0.75);
+
+            backdrop-filter:blur(15px);
+
+            border-radius:35px;
+
+            padding:40px;
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        label{
+
+            display:block;
+
+            margin-top:20px;
+            margin-bottom:10px;
+
+            font-weight:bold;
+
+            color:#0f172a;
+        }
+
+        select{
+
+            width:100%;
+
+            padding:18px;
+
+            border:none;
+
+            border-radius:18px;
+
+            background:#f1f5f9;
+
+            font-size:16px;
+        }
+
+        button{
+
+            width:100%;
+
+            margin-top:30px;
+
+            border:none;
+
+            padding:18px;
+
+            border-radius:18px;
+
+            background:
+            linear-gradient(
+            to right,
+            #2563eb,
+            #7c3aed
+            );
+
+            color:white;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+        }
+
+        .plans{
+
+            width:90%;
+            max-width:1100px;
+
+            margin:40px auto;
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:30px;
+        }
+
+        .plan-card{
+
+            background:white;
+
+            border-radius:30px;
+
+            padding:35px;
+
+            box-shadow:
+            0 10px 30px rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .plan-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .badge{
+
+            display:inline-block;
+
+            background:#ede9fe;
+
+            color:#7c3aed;
+
+            padding:8px 14px;
+
+            border-radius:40px;
+
+            font-size:13px;
+
+            margin-bottom:18px;
+        }
+
+        .plan-card h2{
+            color:#0f172a;
+            margin-bottom:15px;
+        }
+
+        .price{
+
+            font-size:34px;
+            color:#2563eb;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+        .benefits{
+
+            color:#64748b;
+            line-height:1.8;
+            margin-bottom:25px;
+        }
+
+        .book-btn{
+
+            width:100%;
+
+            border:none;
+
+            padding:16px;
+
+            border-radius:16px;
+
+            background:
+            linear-gradient(
+            to right,
+            #2563eb,
+            #7c3aed
+            );
+
+            color:white;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+        }
+ .smart-box{
+
+    width:90%;
+    max-width:1100px;
+
+    margin:50px auto;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+.smart-box h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:38px;
+
+    color:#0f172a;
+}
+
+.smart-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.smart-card{
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
+    color:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+}
+
+.smart-card h3{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.smart-card p{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.recommendation-box{
+
+    margin-top:30px;
+
+    background:#f8fafc;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+}
+
+.recommendation-box h3{
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+}
+
+.recommendation-box p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+.meter{
+
+    width:100%;
+
+    height:18px;
+
+    background:
+    rgba(255,255,255,0.25);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+}
+
+.meter-fill{
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    to right,
+    #22c55e,
+    #eab308,
+    #ef4444
+    );
+
+    border-radius:50px;
+
+    transition:1s;
+}
+    </style>
+   
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        HOMIGO
+    </div>
+
+    <a href="/"
+       class="home-btn">
+       Home
+    </a>
+
+</nav>
+
+<section class="hero">
+
+    <h1>
+        Smart AMC Plans
+    </h1>
+
+    <p>
+        Select appliance age and type
+        to receive the best maintenance
+        recommendations for your device.
+    </p>
+
+</section>
+
+<div class="card">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>
+            Select Timeline
+        </label>
+
+        <select name="timeline" required>
+
+            <option value="">
+                Choose Timeline
+            </option>
+
+            <option value="1998-2005">
+                1998–2005
+            </option>
+
+            <option value="2005-2010">
+                2005–2010
+            </option>
+
+            <option value="2010-2015">
+                2010–2015
+            </option>
+
+            <option value="2015-2020">
+                2015–2020
+            </option>
+
+            <option value="2020-2025">
+                2020–2025
+            </option>
+
+        </select>
+
+        <label>
+            Select Appliance
+        </label>
+
+        <select name="appliance" required>
+
+            <option value="">
+                Choose Appliance
+            </option>
+
+            <option value="Refrigerator">
+                Refrigerator
+            </option>
+
+            <option value="AC">
+                Air Conditioner
+            </option>
+
+            <option value="RO">
+                RO Water Purifier
+            </option>
+
+        </select>
+
+        <button type="submit">
+            Get AMC Plans
+        </button>
+
+    </form>
+
+</div>
+{% if health_score %}
+
+<div class="smart-box">
+
+    <h2>
+        Smart Appliance Analysis
+    </h2>
+
+    <div class="smart-grid">
+
+        <div class="smart-card">
+
+    <h3>
+        Health Score
+    </h3>
+
+    <div class="meter">
+
+        <div class="meter-fill"
+             style="width: {{ health_score }};">
+
+        </div>
+
+    </div>
+
+    <p>
+        {{ health_score }}
+    </p>
+
+</div>
+
+        <div class="smart-card">
+            <h3>Risk Level</h3>
+            <p>{{ risk_level }}</p>
+        </div>
+
+        <div class="smart-card">
+            <h3>Yearly Cost</h3>
+            <p>{{ maintenance_cost }}</p>
+        </div>
+
+    </div>
+
+    <div class="recommendation-box">
+
+        <h3>
+            Why this plan?
+        </h3>
+
+        <p>
+            {{ recommendation_reason }}
+        </p>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+{% if plans %}
+
+<div class="plans">
+
+{% for plan in plans %}
+
+<div class="plan-card">
+
+    <div class="badge">
+        Recommended
+    </div>
+
+    <h2>
+        {{ plan.name }}
+    </h2>
+
+    <div class="price">
+        {{ plan.price }}
+    </div>
+
+    <div class="benefits">
+        {{ plan.benefits }}
+    </div>
+
+    <form action="/book-amc/"
+          method="POST">
+
+        {% csrf_token %}
+
+        <input
+            type="hidden"
+            name="selected_plan"
+            value="{{ plan.name }}">
+
+        <input
+            type="hidden"
+            name="timeline"
+            value="{{ request.POST.timeline }}">
+
+        <input
+            type="hidden"
+            name="appliance"
+            value="{{ request.POST.appliance }}">
+
+        <button class="book-btn"
+                type="submit">
+
+            Choose Plan
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</body>
+</html>

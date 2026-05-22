@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Service - HOMIGO</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            background:
+            linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+            );
+
+            padding:30px;
+        }
+
+        .container{
+
+            width:100%;
+            max-width:550px;
+
+            background:
+            rgba(255,255,255,0.18);
+
+            backdrop-filter:blur(18px);
+
+            border-radius:35px;
+
+            padding:45px;
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.2);
+
+            color:white;
+        }
+
+        .top{
+
+            text-align:center;
+            margin-bottom:35px;
+        }
+
+        .top h1{
+            font-size:38px;
+        }
+
+        .service-tag{
+
+            display:inline-block;
+
+            margin-top:15px;
+
+            background:
+            rgba(255,255,255,0.18);
+
+            padding:10px 20px;
+
+            border-radius:40px;
+
+            font-size:15px;
+        }
+
+        label{
+
+            display:block;
+            margin-bottom:8px;
+            margin-top:18px;
+            font-weight:bold;
+        }
+
+        input,
+        textarea{
+
+            width:100%;
+
+            border:none;
+
+            outline:none;
+
+            padding:16px;
+
+            border-radius:18px;
+
+            background:
+            rgba(255,255,255,0.2);
+
+            color:white;
+
+            font-size:16px;
+        }
+
+        input::placeholder,
+        textarea::placeholder{
+            color:#e2e8f0;
+        }
+
+        button{
+
+            width:100%;
+
+            margin-top:30px;
+
+            border:none;
+
+            padding:18px;
+
+            border-radius:18px;
+
+            background:white;
+
+            color:#2563eb;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:translateY(-4px);
+        }
+.recommend-box{
+
+    background:
+    rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    text-align:center;
+}
+
+.recommend-box h3{
+
+    margin-bottom:10px;
+}
+
+.offer{
+
+    display:inline-block;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    margin-bottom:15px;
+
+    font-weight:bold;
+}
+
+.recommend-box p{
+
+    margin-top:10px;
+
+    color:#e2e8f0;
+}
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top">
+
+        <h1>
+            Book Service
+        </h1>
+
+        <div class="service-tag">
+            {{ service.name }}
+        </div>
+
+    </div>
+{% if recommendation %}
+
+<div class="recommend-box">
+
+    <h3>
+        Recommended For You
+    </h3>
+
+    <div class="offer">
+
+        {{ recommendation.offer }}
+
+    </div>
+
+    <h2>
+        {{ recommendation.title }}
+    </h2>
+
+    <p>
+        {{ recommendation.description }}
+    </p>
+
+</div>
+
+{% endif %}
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>
+            Full Name
+        </label>
+
+        <input
+            type="text"
+            name="customer_name"
+            placeholder="Enter your name"
+            required>
+
+        <label>
+            Phone Number
+        </label>
+
+        <input
+            type="text"
+            name="phone_number"
+            placeholder="Enter phone number"
+            required>
+
+        <label>
+            Address
+        </label>
+
+        <textarea
+            name="address"
+            rows="4"
+            placeholder="Enter address"
+            required></textarea>
+
+        <button type="submit">
+            Confirm Booking
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

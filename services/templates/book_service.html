@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Service</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0px 2px 12px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            background: #0077ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h1>Book {{ service.name }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="customer_name" required>
+
+        <label>Phone</label>
+        <input type="text" name="phone" required>
+
+        <label>Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>Date</label>
+        <input type="date" name="date" required>
+
+        <button type="submit">
+            Confirm Booking
+        </button>
+    </form>
+
+</div>
+
+</body>
+</html>
